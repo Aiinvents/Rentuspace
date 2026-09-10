@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="Contact Horizon Home Rentals about available rental properties, leasing questions, and rental applications."
+  >
+
+  <title>
+    Contact Us | Horizon Home Rentals
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="assets/css/styles.css"
+  >
+
+  <script
+    src="assets/js/config.js"
+    defer
+  ></script>
+
+  <script
+    src="assets/js/contact.js"
+    defer
+  ></script>
+</head>
+
+
+<body>
+
+  <a
+    class="skip-link"
+    href="#main-content"
+  >
+    Skip to content
+  </a>
+
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="site-header">
+
+    <div class="container nav-wrap">
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Horizon Home Rentals home"
+      >
+        Horizon
+        <span>Home Rentals</span>
+      </a>
+
+
+      <nav
+        class="site-nav always-visible"
+        aria-label="Primary navigation"
+      >
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="index.html#listings">
+          Listings
+        </a>
+
+        <a
+          class="nav-cta"
+          href="application.html"
+        >
+          Apply Now
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <main
+    id="main-content"
+    class="section"
+  >
+
+    <div class="container form-layout">
+
+
+      <!-- =========================
+           CONTACT FORM SECTION
+      ========================== -->
+
+      <section aria-labelledby="contact-title">
+
+        <p class="eyebrow">
+          Get In Touch
+        </p>
+
+        <h1 id="contact-title">
+          Contact Horizon Home Rentals
+        </h1>
+
+        <p class="form-intro">
+          Have a question about one of our rental properties,
+          availability, the application process, or scheduling
+          a viewing? Send us a message below.
+        </p>
+
+
+        <form
+          id="contact-form"
+          class="application-form"
+          novalidate
+        >
+
+
+          <!-- =========================
+               PROPERTY SELECTION
+          ========================== -->
+
+          <fieldset>
+
+            <legend>
+              Property Information
+            </legend>
+
+
+            <label for="property">
+              Property you are interested in
+            </label>
+
+            <select
+              id="property"
+              name="property"
+            >
+
+              <option value="">
+                General question
+              </option>
+
+              <option>
+                Cedar Ridge House
+              </option>
+
+              <option>
+                Maple Court Townhome
+              </option>
+
+              <option>
+                Willow Park Bungalow
+              </option>
+
+              <option>
+                Riverstone Family Home
+              </option>
+
+              <option>
+                Sunset Loft Apartment
+              </option>
+
+            </select>
+
+          </fieldset>
+
+
+          <!-- =========================
+               CONTACT INFORMATION
+          ========================== -->
+
+          <fieldset>
+
+            <legend>
+              Your Information
+            </legend>
+
+
+            <div class="field-grid two">
+
+
+              <div>
+
+                <label for="first-name">
+                  First name
+                </label>
+
+                <input
+                  id="first-name"
+                  name="first_name"
+                  type="text"
+                  autocomplete="given-name"
+                  required
+                >
+
+              </div>
+
+
+              <div>
+
+                <label for="last-name">
+                  Last name
+                </label>
+
+                <input
+                  id="last-name"
+                  name="last_name"
+                  type="text"
+                  autocomplete="family-name"
+                  required
+                >
+
+              </div>
+
+
+            </div>
+
+
+            <div class="field-grid two">
+
+
+              <div>
+
+                <label for="email">
+                  Email address
+                </label>
+
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                >
+
+              </div>
+
+
+              <div>
+
+                <label for="phone">
+                  Phone number
+                </label>
+
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                >
+
+              </div>
+
+
+            </div>
+
+          </fieldset>
+
+
+          <!-- =========================
+               MESSAGE DETAILS
+          ========================== -->
+
+          <fieldset>
+
+            <legend>
+              Message
+            </legend>
+
+
+            <label for="subject">
+              Subject
+            </label>
+
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              placeholder="What can we help you with?"
+              required
+            >
+
+
+            <label for="message">
+              Your message
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="7"
+              placeholder="Tell us about the property you are interested in or ask your question here."
+              required
+            ></textarea>
+
+
+            <label class="check-row">
+
+              <input
+                type="checkbox"
+                name="contact_permission"
+                required
+              >
+
+              <span>
+                I give Horizon Home Rentals permission to
+                contact me regarding my rental inquiry.
+              </span>
+
+            </label>
+
+          </fieldset>
+
+
+          <!-- =========================
+               SUBMIT BUTTON
+          ========================== -->
+
+          <button
+            class="button button-primary full-width"
+            type="submit"
+          >
+            Send Message
+          </button>
+
+
+          <p
+            id="contact-status"
+            class="status-message"
+            role="status"
+            aria-live="polite"
+          ></p>
+
+
+        </form>
+
+      </section>
+
+
+      <!-- =========================
+           CONTACT INFORMATION CARD
+      ========================== -->
+
+      <aside
+        class="payment-card"
+        aria-labelledby="contact-info-title"
+      >
+
+        <p class="eyebrow">
+          Contact Information
+        </p>
+
+        <h2 id="contact-info-title">
+          We're Here to Help
+        </h2>
+
+
+        <p>
+          Contact us with questions about available
+          properties, applications, leasing, or
+          scheduling a property viewing.
+        </p>
+
+
+        <section aria-labelledby="phone-title">
+
+          <h3 id="phone-title">
+            Phone
+          </h3>
+
+          <p>
+            <a href="tel:+15551234567">
+              (555) 123-4567
+            </a>
+          </p>
+
+        </section>
+
+
+        <section aria-labelledby="email-title">
+
+          <h3 id="email-title">
+            Email
+          </h3>
+
+          <p>
+            <a href="mailto:rentals@example.com">
+              rentals@example.com
+            </a>
+          </p>
+
+        </section>
+
+
+        <section aria-labelledby="office-title">
+
+          <h3 id="office-title">
+            Office
+          </h3>
+
+          <address>
+            Horizon Home Rentals<br>
+            100 Main Street<br>
+            Suite 200<br>
+            Your City, ST 00000
+          </address>
+
+        </section>
+
+
+        <section aria-labelledby="hours-title">
+
+          <h3 id="hours-title">
+            Office Hours
+          </h3>
+
+          <p>
+            Monday – Friday<br>
+            9:00 AM – 5:00 PM
+          </p>
+
+          <p>
+            Saturday<br>
+            By appointment
+          </p>
+
+          <p>
+            Sunday<br>
+            Closed
+          </p>
+
+        </section>
+
+
+        <div class="notice">
+
+          <strong>
+            Interested in applying?
+          </strong>
+
+          <p>
+            You can complete your rental application
+            online after selecting a property.
+          </p>
+
+          <a
+            class="button button-primary full-width"
+            href="application.html"
+          >
+            Start Rental Application
+          </a>
+
+        </div>
+
+
+      </aside>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-grid">
+
+
+      <section aria-labelledby="footer-company">
+
+        <strong id="footer-company">
+          Horizon Home Rentals
+        </strong>
+
+        <p>
+          Quality homes. Straightforward service.
+        </p>
+
+      </section>
+
+
+      <nav aria-label="Footer navigation">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="index.html#listings">
+          Listings
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="application.html">
+          Rental Application
+        </a>
+
+        <a href="privacy.html">
+          Privacy
+        </a>
+
+      </nav>
+
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      <p>
+        &copy;
+        <span id="year"></span>
+        Horizon Home Rentals.
+        All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+</body>
+
+</html>
