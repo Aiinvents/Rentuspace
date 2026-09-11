@@ -15,7 +15,7 @@ window.RENTAL_SITE_CONFIG = {
    * When you are ready to go live, replace it with your
    * PayPal Live client ID.
    */
-  paypalClientId: "YOUR_PAYPAL_CLIENT_ID",
+  paypalClientId: "BAABuU2xH2oY1ckg4eb8uZ1dza_hKPSa8duAPeIvbS21x4MqmNNsWtk4AsfyA1X9S76TLymGHaWbt-Lzd0",
 
 
   /*
@@ -79,7 +79,7 @@ window.RENTAL_SITE_CONFIG = {
 
     contactForm: "https://formspree.io/f/mvkoldvn",
 
-    rentalApplication: ""
+    rentalApplication: "https://form.jotform.com/262532139626054"
 
   },
 
