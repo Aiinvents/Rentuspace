@@ -77,7 +77,7 @@ window.RENTAL_SITE_CONFIG = {
    */
   endpoints: {
 
-    contactForm: "",
+    contactForm: "https://formspree.io/f/mvkoldvn",
 
     rentalApplication: ""
 
