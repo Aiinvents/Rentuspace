@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -11,53 +10,26 @@
 
   <meta
     name="description"
-    content="Securely pay your Horizon Home Rentals rental application fee through PayPal."
+    content="Pay the Horizon Home Rentals rental application fee securely through PayPal."
   >
 
-  <title>
-    Application Fee | Horizon Home Rentals
-  </title>
+  <title>Application Fee | Horizon Home Rentals</title>
 
-
-  <!-- =====================================================
-       GOOGLE FONTS
-  ====================================================== -->
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
-
-  <!-- =====================================================
-       WEBSITE STYLES
-  ====================================================== -->
-
   <link
     rel="stylesheet"
     href="assets/css/styles.css"
   >
-
 </head>
 
-
 <body>
-
-
-  <!-- =====================================================
-       SKIP LINK
-  ====================================================== -->
 
   <a
     class="skip-link"
@@ -67,9 +39,9 @@
   </a>
 
 
-  <!-- =====================================================
-       SITE HEADER
-  ====================================================== -->
+  <!-- =========================
+       HEADER
+  ========================== -->
 
   <header class="site-header">
 
@@ -83,7 +55,6 @@
         Horizon
         <span>Home Rentals</span>
       </a>
-
 
       <nav
         class="site-nav always-visible"
@@ -113,9 +84,9 @@
   </header>
 
 
-  <!-- =====================================================
+  <!-- =========================
        MAIN CONTENT
-  ====================================================== -->
+  ========================== -->
 
   <main
     id="main-content"
@@ -124,12 +95,7 @@
 
     <div class="container">
 
-
-      <!-- =================================================
-           PAGE HEADING
-      ================================================== -->
-
-      <header class="section-heading">
+      <div class="section-heading">
 
         <p class="eyebrow">
           Rental Application
@@ -140,24 +106,19 @@
         </h1>
 
         <p>
-          If you have already submitted your rental
-          application, you can securely pay the application
-          fee below using PayPal.
+          If you have already submitted your rental application,
+          you can securely pay the application fee below using PayPal.
         </p>
 
-      </header>
+      </div>
 
-
-      <!-- =================================================
-           PAYMENT AREA
-      ================================================== -->
 
       <div class="form-layout">
 
 
-        <!-- ===============================================
-             PAYMENT CARD
-        ================================================ -->
+        <!-- =========================
+             PAYMENT SECTION
+        ========================== -->
 
         <section
           class="payment-card"
@@ -168,11 +129,9 @@
             Pay Application Fee
           </h2>
 
-
           <p>
             Application Fee
           </p>
-
 
           <p
             class="fee"
@@ -181,18 +140,12 @@
             $35.00
           </p>
 
-
           <p>
             Payment is processed securely through PayPal.
-            Horizon Home Rentals does not receive or store
-            your PayPal password, debit card number, or
-            credit card number.
+            Horizon Home Rentals does not receive or store your
+            PayPal password, debit card number, or credit card number.
           </p>
 
-
-          <!-- ===========================================
-               APPLICATION CONFIRMATION
-          ============================================ -->
 
           <div class="check-row">
 
@@ -203,26 +156,20 @@
             >
 
             <label for="application-confirmation">
-              I confirm that I have already submitted my
-              rental application.
+              I confirm that I have already submitted my rental application.
             </label>
 
           </div>
 
 
-          <!-- ===========================================
-               PAYPAL BUTTON CONTAINER
-          ============================================ -->
+          <!-- PayPal renders here -->
 
           <div
             id="paypal-button-container"
             aria-live="polite"
+            style="display: none; margin-top: 24px;"
           ></div>
 
-
-          <!-- ===========================================
-               PAYPAL STATUS MESSAGE
-          ============================================ -->
 
           <p
             id="paypal-status"
@@ -230,73 +177,56 @@
             role="status"
             aria-live="polite"
           >
-            Confirm that you submitted your rental
-            application to continue.
+            Confirm that you submitted your rental application to continue.
           </p>
 
         </section>
 
 
-        <!-- ===============================================
-             PAYMENT INFORMATION
-        ================================================ -->
 
-        <aside
-          class="payment-card"
-          aria-labelledby="payment-info-heading"
-        >
+        <!-- =========================
+             INFORMATION SECTION
+        ========================== -->
 
-          <h2 id="payment-info-heading">
+        <aside class="payment-card">
+
+          <h2>
             Before You Pay
           </h2>
 
-
           <p>
-            Please make sure you have completed and
-            submitted the rental application before paying
-            the application fee.
+            Please make sure you have completed and submitted
+            the rental application before paying the application fee.
           </p>
 
-
           <p>
-            Your application and payment are separate
-            transactions. Submitting an application or
-            paying an application fee does not guarantee
-            approval for a rental property.
+            Payment of an application fee does not guarantee
+            approval of a rental application.
           </p>
 
-
           <p>
-            Do not enter Social Security numbers, bank
-            account information, passwords, or other
-            sensitive information on this payment page.
-          </p>
-
-
-          <p>
-            If you reached this page before completing an
-            application, return to the rental application
-            first.
+            Do not enter passwords, Social Security numbers,
+            bank account information, or payment card information
+            directly on this website.
           </p>
 
 
           <a
-            href="https://form.jotform.com/262532139626054"
             class="button button-secondary"
+            href="https://form.jotform.com/262532139626054"
           >
             Return to Rental Application
           </a>
 
 
           <a
+            class="button button-outline"
             href="contact.html"
-            class="button button-secondary"
           >
             Contact Us
           </a>
 
         </aside>
-
 
       </div>
 
@@ -305,9 +235,9 @@
   </main>
 
 
-  <!-- =====================================================
-       SITE FOOTER
-  ====================================================== -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
   <footer class="site-footer">
 
@@ -315,11 +245,10 @@
 
       <p>
         &copy;
-        <span id="year"></span>
+        <span id="year">2026</span>
         Horizon Home Rentals.
         All rights reserved.
       </p>
-
 
       <nav
         class="footer-nav"
@@ -338,9 +267,7 @@
           Contact
         </a>
 
-        <a
-          href="https://form.jotform.com/262532139626054"
-        >
+        <a href="https://form.jotform.com/262532139626054">
           Rental Application
         </a>
 
@@ -355,69 +282,50 @@
   </footer>
 
 
-  <!-- =====================================================
-       WEBSITE CONFIGURATION
-  ====================================================== -->
+
+  <!-- =========================
+       SITE CONFIGURATION
+  ========================== -->
 
   <script src="assets/js/config.js"></script>
 
 
-  <!-- =====================================================
-       PAYMENT PAGE JAVASCRIPT
-  ====================================================== -->
+  <!-- =========================
+       PAYPAL SANDBOX TESTING
+  ========================== -->
 
   <script>
 
-    "use strict";
-
-
-    /* =====================================================
-       WAIT FOR PAGE TO LOAD
-    ====================================================== */
-
     document.addEventListener(
       "DOMContentLoaded",
-      function () {
-
-        initializePaymentPage();
-
-      }
+      initializePaymentPage
     );
 
-
-    /* =====================================================
-       PAYMENT PAGE SETUP
-    ====================================================== */
 
     function initializePaymentPage() {
 
       const config =
         window.RENTAL_SITE_CONFIG || {};
 
-
-      const confirmation =
+      const confirmationCheckbox =
         document.getElementById(
           "application-confirmation"
         );
-
 
       const paypalContainer =
         document.getElementById(
           "paypal-button-container"
         );
 
-
       const paypalStatus =
         document.getElementById(
           "paypal-status"
         );
 
-
       const feeDisplay =
         document.getElementById(
           "fee-display"
         );
-
 
       const yearElement =
         document.getElementById(
@@ -425,9 +333,19 @@
         );
 
 
-      /* ===================================================
-         FOOTER YEAR
-      ==================================================== */
+      const applicationFee =
+        config.applicationFee || "35.00";
+
+      const currency =
+        config.currency || "USD";
+
+      const paypalClientId =
+        config.paypalClientId || "";
+
+
+      /*
+       * Footer year
+       */
 
       if (yearElement) {
 
@@ -437,25 +355,9 @@
       }
 
 
-      /* ===================================================
-         CONFIGURATION
-      ==================================================== */
-
-      const applicationFee =
-        config.applicationFee || "35.00";
-
-
-      const currency =
-        config.currency || "USD";
-
-
-      const paypalClientId =
-        config.paypalClientId || "";
-
-
-      /* ===================================================
-         DISPLAY APPLICATION FEE
-      ==================================================== */
+      /*
+       * Show configured fee
+       */
 
       if (feeDisplay) {
 
@@ -468,274 +370,19 @@
       }
 
 
-      /* ===================================================
-         WAIT FOR CONFIRMATION
-      ==================================================== */
-
-      if (!confirmation) {
-        return;
-      }
-
-
-      confirmation.addEventListener(
-        "change",
-        async function () {
-
-          /*
-           * If unchecked, remove PayPal buttons.
-           */
-
-          if (!confirmation.checked) {
-
-            if (paypalContainer) {
-
-              paypalContainer.innerHTML = "";
-
-            }
-
-
-            setPaymentStatus(
-              paypalStatus,
-              "Confirm that you submitted your rental application to continue.",
-              ""
-            );
-
-
-            return;
-
-          }
-
-
-          /*
-           * Check PayPal configuration.
-           */
-
-          if (
-            !paypalClientId ||
-            paypalClientId ===
-              "YOUR_PAYPAL_CLIENT_ID"
-          ) {
-
-            setPaymentStatus(
-              paypalStatus,
-              "PayPal has not been configured yet. Add your PayPal Client ID to assets/js/config.js.",
-              "error"
-            );
-
-
-            return;
-
-          }
-
-
-          /*
-           * Load PayPal.
-           */
-
-          setPaymentStatus(
-            paypalStatus,
-            "Loading secure PayPal checkout...",
-            ""
-          );
-
-
-          try {
-
-            await loadPayPalSDK(
-              paypalClientId,
-              currency
-            );
-
-
-            renderPayPalButtons(
-              applicationFee,
-              currency,
-              paypalContainer,
-              paypalStatus
-            );
-
-
-          } catch (error) {
-
-            console.error(
-              "PayPal loading error:",
-              error
-            );
-
-
-            setPaymentStatus(
-              paypalStatus,
-              "PayPal checkout could not load. Please refresh the page and try again.",
-              "error"
-            );
-
-          }
-
-        }
-      );
-
-    }
-
-
-    /* =====================================================
-       LOAD PAYPAL SDK
-    ====================================================== */
-
-    function loadPayPalSDK(
-      clientId,
-      currency
-    ) {
-
-      return new Promise(
-        function (resolve, reject) {
-
-
-          /*
-           * PayPal is already loaded.
-           */
-
-          if (window.paypal) {
-
-            resolve();
-
-            return;
-
-          }
-
-
-          /*
-           * Check whether the SDK script has already
-           * been added to the page.
-           */
-
-          const existingScript =
-            document.querySelector(
-              'script[data-paypal-sdk="true"]'
-            );
-
-
-          if (existingScript) {
-
-            existingScript.addEventListener(
-              "load",
-              function () {
-
-                resolve();
-
-              }
-            );
-
-
-            existingScript.addEventListener(
-              "error",
-              function () {
-
-                reject(
-                  new Error(
-                    "PayPal SDK could not load."
-                  )
-                );
-
-              }
-            );
-
-
-            return;
-
-          }
-
-
-          /*
-           * Create the PayPal SDK script.
-           */
-
-          const script =
-            document.createElement(
-              "script"
-            );
-
-
-          const parameters =
-            new URLSearchParams({
-
-              "client-id":
-                clientId,
-
-              currency:
-                currency,
-
-              intent:
-                "capture",
-
-              components:
-                "buttons"
-
-            });
-
-
-          script.src =
-            "https://www.paypal.com/sdk/js?" +
-            parameters.toString();
-
-
-          script.async = true;
-
-
-          script.setAttribute(
-            "data-paypal-sdk",
-            "true"
-          );
-
-
-          script.addEventListener(
-            "load",
-            function () {
-
-              resolve();
-
-            }
-          );
-
-
-          script.addEventListener(
-            "error",
-            function () {
-
-              reject(
-                new Error(
-                  "PayPal SDK could not load."
-                )
-              );
-
-            }
-          );
-
-
-          document.head.appendChild(
-            script
-          );
-
-        }
-      );
-
-    }
-
-
-    /* =====================================================
-       RENDER PAYPAL BUTTONS
-    ====================================================== */
-
-    function renderPayPalButtons(
-      applicationFee,
-      currency,
-      paypalContainer,
-      paypalStatus
-    ) {
+      /*
+       * Make sure required elements exist
+       */
 
       if (
+        !confirmationCheckbox ||
         !paypalContainer ||
-        !window.paypal
+        !paypalStatus
       ) {
+
+        console.error(
+          "Required payment page elements were not found."
+        );
 
         return;
 
@@ -743,303 +390,572 @@
 
 
       /*
-       * Prevent duplicate buttons.
+       * Check that a PayPal Client ID exists
        */
 
       if (
-        paypalContainer.dataset.rendered ===
-        "true"
+        !paypalClientId ||
+        paypalClientId ===
+          "YOUR_PAYPAL_CLIENT_ID"
       ) {
+
+        setStatus(
+          "PayPal has not been configured yet.",
+          "error"
+        );
+
+        confirmationCheckbox.disabled = true;
 
         return;
 
       }
 
 
-      paypalContainer.innerHTML = "";
+      /*
+       * Checkbox event
+       */
+
+      confirmationCheckbox.addEventListener(
+        "change",
+        function () {
+
+          if (
+            confirmationCheckbox.checked
+          ) {
+
+            paypalContainer.style.display =
+              "block";
+
+            setStatus(
+              "Loading secure PayPal checkout...",
+              "info"
+            );
+
+            loadPayPalSDK(
+              paypalClientId,
+              currency
+            );
+
+          } else {
+
+            paypalContainer.style.display =
+              "none";
+
+            setStatus(
+              "Confirm that you submitted your rental application to continue.",
+              "info"
+            );
+
+          }
+
+        }
+      );
 
 
-      window.paypal
-        .Buttons({
 
-          style: {
+      /*
+       * Dynamically load PayPal SDK.
+       *
+       * This page is being used for
+       * SANDBOX TESTING.
+       */
 
-            layout:
-              "vertical",
+      function loadPayPalSDK(
+        clientId,
+        currencyCode
+      ) {
 
-            shape:
-              "pill",
+        /*
+         * If PayPal is already loaded,
+         * don't load it twice.
+         */
 
-            label:
-              "paypal"
+        if (
+          window.paypal &&
+          window.paypal.Buttons
+        ) {
 
-          },
+          renderPayPalButtons();
+
+          return;
+
+        }
 
 
-          /* ===============================================
-             CREATE ORDER
-          =============================================== */
+        /*
+         * Prevent duplicate script tags.
+         */
 
-          createOrder:
-            function (
-              data,
-              actions
+        const existingScript =
+          document.getElementById(
+            "paypal-sdk-script"
+          );
+
+        if (existingScript) {
+
+          return;
+
+        }
+
+
+        const script =
+          document.createElement(
+            "script"
+          );
+
+
+        script.id =
+          "paypal-sdk-script";
+
+
+        script.src =
+          "https://www.paypal.com/sdk/js" +
+          "?client-id=" +
+          encodeURIComponent(clientId) +
+          "&currency=" +
+          encodeURIComponent(currencyCode) +
+          "&intent=capture";
+
+
+        script.async = true;
+
+
+        script.onload =
+          function () {
+
+            if (
+              window.paypal &&
+              window.paypal.Buttons
             ) {
 
-              return actions.order.create({
+              renderPayPalButtons();
 
-                purchase_units: [
+            } else {
 
-                  {
-
-                    description:
-                      "Horizon Home Rentals Application Fee",
-
-                    amount: {
-
-                      currency_code:
-                        currency,
-
-                      value:
-                        Number(
-                          applicationFee
-                        ).toFixed(2)
-
-                    }
-
-                  }
-
-                ],
-
-
-                application_context: {
-
-                  brand_name:
-                    "Horizon Home Rentals",
-
-                  shipping_preference:
-                    "NO_SHIPPING",
-
-                  user_action:
-                    "PAY_NOW"
-
-                }
-
-              });
-
-            },
-
-
-          /* ===============================================
-             PAYMENT APPROVED
-          =============================================== */
-
-          onApprove:
-            async function (
-              data,
-              actions
-            ) {
-
-              setPaymentStatus(
-                paypalStatus,
-                "Processing your payment...",
-                ""
-              );
-
-
-              try {
-
-                const details =
-                  await actions.order.capture();
-
-
-                const transactionId =
-                  getTransactionId(
-                    details
-                  );
-
-
-                let successMessage =
-                  "Your application fee was paid successfully.";
-
-
-                if (transactionId) {
-
-                  successMessage +=
-                    " PayPal transaction ID: " +
-                    transactionId +
-                    ".";
-
-                }
-
-
-                setPaymentStatus(
-                  paypalStatus,
-                  successMessage,
-                  "success"
-                );
-
-
-                paypalContainer.dataset.paymentComplete =
-                  "true";
-
-
-              } catch (error) {
-
-                console.error(
-                  "PayPal capture error:",
-                  error
-                );
-
-
-                setPaymentStatus(
-                  paypalStatus,
-                  "Your payment could not be completed. Please try again.",
-                  "error"
-                );
-
-              }
-
-            },
-
-
-          /* ===============================================
-             PAYMENT CANCELLED
-          =============================================== */
-
-          onCancel:
-            function () {
-
-              setPaymentStatus(
-                paypalStatus,
-                "The payment was cancelled. No completed payment was recorded. You can try again when you are ready.",
-                "error"
-              );
-
-            },
-
-
-          /* ===============================================
-             PAYPAL ERROR
-          =============================================== */
-
-          onError:
-            function (error) {
-
-              console.error(
-                "PayPal error:",
-                error
-              );
-
-
-              setPaymentStatus(
-                paypalStatus,
-                "PayPal encountered an error. Please try again.",
+              setStatus(
+                "PayPal loaded, but the payment buttons could not be initialized.",
                 "error"
               );
 
             }
 
-        })
-        .render(
-          "#paypal-button-container"
-        )
-        .then(
+          };
+
+
+        script.onerror =
           function () {
 
-            paypalContainer.dataset.rendered =
-              "true";
-
-
-            setPaymentStatus(
-              paypalStatus,
-              "Choose a PayPal payment option above to pay the application fee.",
-              ""
-            );
-
-          }
-        )
-        .catch(
-          function (error) {
-
-            console.error(
-              "PayPal render error:",
-              error
-            );
-
-
-            setPaymentStatus(
-              paypalStatus,
-              "PayPal checkout could not be displayed. Please refresh the page and try again.",
+            setStatus(
+              "PayPal could not be loaded. Check your internet connection and try again.",
               "error"
             );
 
-          }
+          };
+
+
+        document.body.appendChild(
+          script
         );
-
-    }
-
-
-    /* =====================================================
-       GET TRANSACTION ID
-    ====================================================== */
-
-    function getTransactionId(
-      details
-    ) {
-
-      try {
-
-        return (
-          details
-            .purchase_units[0]
-            .payments
-            .captures[0]
-            .id || ""
-        );
-
-
-      } catch (error) {
-
-        return "";
 
       }
 
-    }
 
 
-    /* =====================================================
-       FORMAT CURRENCY
-    ====================================================== */
+      /*
+       * Render PayPal Buttons
+       */
 
-    function formatCurrency(
-      amount,
-      currency
-    ) {
+      function renderPayPalButtons() {
 
-      const numericAmount =
-        Number(amount);
+        /*
+         * Don't render the buttons twice.
+         */
+
+        if (
+          paypalContainer.dataset.rendered ===
+          "true"
+        ) {
+
+          setStatus(
+            "Choose PayPal below to continue.",
+            "success"
+          );
+
+          return;
+
+        }
 
 
-      if (
-        Number.isNaN(
-          numericAmount
-        )
+        paypalContainer.innerHTML = "";
+
+
+        try {
+
+          window.paypal
+            .Buttons({
+
+              style: {
+
+                layout: "vertical",
+
+                shape: "rect",
+
+                label: "paypal"
+
+              },
+
+
+              /*
+               * Create Sandbox order.
+               *
+               * This client-side order creation
+               * is for testing only.
+               *
+               * Production payments will later
+               * use our Cloudflare Worker.
+               */
+
+              createOrder:
+                function (
+                  data,
+                  actions
+                ) {
+
+                  setStatus(
+                    "Opening PayPal...",
+                    "info"
+                  );
+
+
+                  return actions.order.create({
+
+                    purchase_units: [
+
+                      {
+
+                        description:
+                          "Horizon Home Rentals Application Fee",
+
+                        amount: {
+
+                          currency_code:
+                            currency,
+
+                          value:
+                            applicationFee
+
+                        }
+
+                      }
+
+                    ],
+
+                    application_context: {
+
+                      brand_name:
+                        "Horizon Home Rentals",
+
+                      shipping_preference:
+                        "NO_SHIPPING",
+
+                      user_action:
+                        "PAY_NOW"
+
+                    }
+
+                  });
+
+                },
+
+
+
+              /*
+               * Buyer approved the payment.
+               */
+
+              onApprove:
+                function (
+                  data,
+                  actions
+                ) {
+
+                  setStatus(
+                    "Processing your Sandbox payment...",
+                    "info"
+                  );
+
+
+                  return actions.order
+                    .capture()
+                    .then(
+                      function (
+                        orderDetails
+                      ) {
+
+                        const transactionId =
+                          getTransactionId(
+                            orderDetails
+                          );
+
+
+                        paypalContainer.style.display =
+                          "none";
+
+
+                        confirmationCheckbox.disabled =
+                          true;
+
+
+                        setStatus(
+                          "Sandbox payment completed successfully." +
+                          (
+                            transactionId
+                              ? " Transaction ID: " +
+                                transactionId
+                              : ""
+                          ),
+                          "success"
+                        );
+
+
+                        console.log(
+                          "PayPal Sandbox order:",
+                          orderDetails
+                        );
+
+                      }
+                    );
+
+                },
+
+
+
+              /*
+               * Buyer cancelled.
+               */
+
+              onCancel:
+                function () {
+
+                  setStatus(
+                    "The payment was cancelled. No payment was completed.",
+                    "info"
+                  );
+
+                },
+
+
+
+              /*
+               * PayPal error.
+               */
+
+              onError:
+                function (
+                  error
+                ) {
+
+                  console.error(
+                    "PayPal error:",
+                    error
+                  );
+
+
+                  setStatus(
+                    "PayPal encountered an error. Please try again.",
+                    "error"
+                  );
+
+                }
+
+            })
+            .render(
+              "#paypal-button-container"
+            )
+            .then(
+              function () {
+
+                paypalContainer.dataset.rendered =
+                  "true";
+
+
+                setStatus(
+                  "Choose PayPal below to continue.",
+                  "success"
+                );
+
+              }
+            )
+            .catch(
+              function (
+                error
+              ) {
+
+                console.error(
+                  "PayPal render error:",
+                  error
+                );
+
+
+                setStatus(
+                  "The PayPal button could not be displayed. Please try refreshing the page.",
+                  "error"
+                );
+
+              }
+            );
+
+        } catch (
+          error
+        ) {
+
+          console.error(
+            "PayPal initialization error:",
+            error
+          );
+
+
+          setStatus(
+            "PayPal could not be initialized.",
+            "error"
+          );
+
+        }
+
+      }
+
+
+
+      /*
+       * Get transaction ID after capture
+       */
+
+      function getTransactionId(
+        orderDetails
       ) {
 
-        return "$0.00";
+        try {
+
+          return (
+            orderDetails
+              .purchase_units[0]
+              .payments
+              .captures[0]
+              .id || ""
+          );
+
+        } catch (
+          error
+        ) {
+
+          return "";
+
+        }
 
       }
 
 
-      try {
 
-        return new Intl
-          .NumberFormat(
+      /*
+       * Format fee
+       */
+
+      function formatCurrency(
+        amount,
+        currencyCode
+      ) {
+
+        const numericAmount =
+          Number(amount);
+
+
+        if (
+          Number.isNaN(
+            numericAmount
+          )
+        ) {
+
+          return "$35.00";
+
+        }
+
+
+        try {
+
+          return new Intl.NumberFormat(
             "en-US",
             {
 
-              style:
-                "currency",
+              style: "currency",
 
-              curren
+              currency:
+                currencyCode
+
+            }
+          ).format(
+            numericAmount
+          );
+
+        } catch (
+          error
+        ) {
+
+          return (
+            "$" +
+            numericAmount.toFixed(2)
+          );
+
+        }
+
+      }
+
+
+
+      /*
+       * Status messages
+       */
+
+      function setStatus(
+        message,
+        type
+      ) {
+
+        paypalStatus.textContent =
+          message;
+
+
+        paypalStatus.classList.remove(
+          "success",
+          "error"
+        );
+
+
+        if (
+          type === "success"
+        ) {
+
+          paypalStatus.classList.add(
+            "success"
+          );
+
+        }
+
+
+        if (
+          type === "error"
+        ) {
+
+          paypalStatus.classList.add(
+            "error"
+          );
+
+        }
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
