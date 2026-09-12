@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
 
@@ -15,8 +16,16 @@
 
   <title>Application Fee | Horizon Home Rentals</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -29,6 +38,7 @@
   >
 </head>
 
+
 <body>
 
   <a
@@ -39,9 +49,7 @@
   </a>
 
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
 
   <header class="site-header">
 
@@ -55,6 +63,7 @@
         Horizon
         <span>Home Rentals</span>
       </a>
+
 
       <nav
         class="site-nav always-visible"
@@ -84,9 +93,8 @@
   </header>
 
 
-  <!-- =========================
-       MAIN CONTENT
-  ========================== -->
+
+  <!-- MAIN -->
 
   <main
     id="main-content"
@@ -116,9 +124,7 @@
       <div class="form-layout">
 
 
-        <!-- =========================
-             PAYMENT SECTION
-        ========================== -->
+        <!-- PAYMENT CARD -->
 
         <section
           class="payment-card"
@@ -129,9 +135,11 @@
             Pay Application Fee
           </h2>
 
+
           <p>
             Application Fee
           </p>
+
 
           <p
             class="fee"
@@ -139,6 +147,7 @@
           >
             $35.00
           </p>
+
 
           <p>
             Payment is processed securely through PayPal.
@@ -162,8 +171,6 @@
           </div>
 
 
-          <!-- PayPal renders here -->
-
           <div
             id="paypal-button-container"
             aria-live="polite"
@@ -184,9 +191,7 @@
 
 
 
-        <!-- =========================
-             INFORMATION SECTION
-        ========================== -->
+        <!-- INFORMATION CARD -->
 
         <aside class="payment-card">
 
@@ -194,15 +199,25 @@
             Before You Pay
           </h2>
 
+
           <p>
             Please make sure you have completed and submitted
             the rental application before paying the application fee.
           </p>
 
+
           <p>
             Payment of an application fee does not guarantee
             approval of a rental application.
           </p>
+
+
+          <p>
+            The $35.00 application fee is created and verified
+            securely by our payment server before the transaction
+            is completed through PayPal.
+          </p>
+
 
           <p>
             Do not enter passwords, Social Security numbers,
@@ -235,9 +250,8 @@
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+
+  <!-- FOOTER -->
 
   <footer class="site-footer">
 
@@ -249,6 +263,7 @@
         Horizon Home Rentals.
         All rights reserved.
       </p>
+
 
       <nav
         class="footer-nav"
@@ -283,16 +298,13 @@
 
 
 
-  <!-- =========================
-       SITE CONFIGURATION
-  ========================== -->
+  <!-- SITE CONFIGURATION -->
 
   <script src="assets/js/config.js"></script>
 
 
-  <!-- =========================
-       PAYPAL SANDBOX TESTING
-  ========================== -->
+
+  <!-- SECURE PAYPAL SANDBOX CHECKOUT -->
 
   <script>
 
@@ -307,139 +319,141 @@
       const config =
         window.RENTAL_SITE_CONFIG || {};
 
-      const confirmationCheckbox =
+
+      const checkbox =
         document.getElementById(
           "application-confirmation"
         );
+
 
       const paypalContainer =
         document.getElementById(
           "paypal-button-container"
         );
 
-      const paypalStatus =
+
+      const status =
         document.getElementById(
           "paypal-status"
         );
+
 
       const feeDisplay =
         document.getElementById(
           "fee-display"
         );
 
-      const yearElement =
+
+      const year =
         document.getElementById(
           "year"
         );
 
 
-      const applicationFee =
-        config.applicationFee || "35.00";
-
-      const currency =
-        config.currency || "USD";
-
-      const paypalClientId =
+      const clientId =
         config.paypalClientId || "";
 
 
       /*
-       * Footer year
+       * Netlify secure backend.
        */
 
-      if (yearElement) {
+      const NETLIFY_BACKEND =
+        "https://warm-palmier-0e6c75.netlify.app";
 
-        yearElement.textContent =
-          new Date().getFullYear();
 
-      }
+      const CREATE_ORDER_URL =
+        NETLIFY_BACKEND +
+        "/.netlify/functions/create-order";
+
+
+      const CAPTURE_ORDER_URL =
+        NETLIFY_BACKEND +
+        "/.netlify/functions/capture-order";
 
 
       /*
-       * Show configured fee
+       * Display information.
        */
+
+      if (year) {
+        year.textContent =
+          new Date().getFullYear();
+      }
+
 
       if (feeDisplay) {
-
         feeDisplay.textContent =
-          formatCurrency(
-            applicationFee,
-            currency
-          );
-
+          "$35.00";
       }
 
 
-      /*
-       * Make sure required elements exist
-       */
-
       if (
-        !confirmationCheckbox ||
+        !checkbox ||
         !paypalContainer ||
-        !paypalStatus
+        !status
       ) {
-
         console.error(
-          "Required payment page elements were not found."
+          "Payment page elements are missing."
         );
 
         return;
-
       }
 
 
       /*
-       * Check that a PayPal Client ID exists
+       * Client ID is public and is only used
+       * to load the PayPal checkout interface.
+       *
+       * Client Secret remains inside Netlify.
        */
 
       if (
-        !paypalClientId ||
-        paypalClientId ===
+        !clientId ||
+        clientId ===
           "YOUR_PAYPAL_CLIENT_ID"
       ) {
 
         setStatus(
-          "PayPal has not been configured yet.",
+          "PayPal has not been configured.",
           "error"
         );
 
-        confirmationCheckbox.disabled = true;
+        checkbox.disabled = true;
 
         return;
-
       }
 
 
+
       /*
-       * Checkbox event
+       * User confirms that an application
+       * has already been submitted.
        */
 
-      confirmationCheckbox.addEventListener(
+      checkbox.addEventListener(
         "change",
         function () {
 
-          if (
-            confirmationCheckbox.checked
-          ) {
+          if (checkbox.checked) {
 
             paypalContainer.style.display =
               "block";
+
 
             setStatus(
               "Loading secure PayPal checkout...",
               "info"
             );
 
-            loadPayPalSDK(
-              paypalClientId,
-              currency
-            );
+
+            loadPayPalSDK();
 
           } else {
 
             paypalContainer.style.display =
               "none";
+
 
             setStatus(
               "Confirm that you submitted your rental application to continue.",
@@ -454,21 +468,10 @@
 
 
       /*
-       * Dynamically load PayPal SDK.
-       *
-       * This page is being used for
-       * SANDBOX TESTING.
+       * Load PayPal JavaScript SDK.
        */
 
-      function loadPayPalSDK(
-        clientId,
-        currencyCode
-      ) {
-
-        /*
-         * If PayPal is already loaded,
-         * don't load it twice.
-         */
+      function loadPayPalSDK() {
 
         if (
           window.paypal &&
@@ -478,23 +481,15 @@
           renderPayPalButtons();
 
           return;
-
         }
 
 
-        /*
-         * Prevent duplicate script tags.
-         */
-
-        const existingScript =
+        if (
           document.getElementById(
             "paypal-sdk-script"
-          );
-
-        if (existingScript) {
-
+          )
+        ) {
           return;
-
         }
 
 
@@ -512,8 +507,7 @@
           "https://www.paypal.com/sdk/js" +
           "?client-id=" +
           encodeURIComponent(clientId) +
-          "&currency=" +
-          encodeURIComponent(currencyCode) +
+          "&currency=USD" +
           "&intent=capture";
 
 
@@ -533,7 +527,7 @@
             } else {
 
               setStatus(
-                "PayPal loaded, but the payment buttons could not be initialized.",
+                "PayPal checkout could not be initialized.",
                 "error"
               );
 
@@ -546,7 +540,7 @@
           function () {
 
             setStatus(
-              "PayPal could not be loaded. Check your internet connection and try again.",
+              "PayPal could not be loaded. Please try again.",
               "error"
             );
 
@@ -562,14 +556,10 @@
 
 
       /*
-       * Render PayPal Buttons
+       * Render PayPal button.
        */
 
       function renderPayPalButtons() {
-
-        /*
-         * Don't render the buttons twice.
-         */
 
         if (
           paypalContainer.dataset.rendered ===
@@ -582,337 +572,277 @@
           );
 
           return;
-
         }
 
 
         paypalContainer.innerHTML = "";
 
 
-        try {
+        window.paypal
+          .Buttons({
 
-          window.paypal
-            .Buttons({
+            style: {
 
-              style: {
+              layout: "vertical",
 
-                layout: "vertical",
+              shape: "rect",
 
-                shape: "rect",
+              label: "paypal"
 
-                label: "paypal"
-
-              },
+            },
 
 
-              /*
-               * Create Sandbox order.
-               *
-               * This client-side order creation
-               * is for testing only.
-               *
-               * Production payments will later
-               * use our Cloudflare Worker.
-               */
 
-              createOrder:
-                function (
-                  data,
-                  actions
-                ) {
+            /*
+             * IMPORTANT:
+             *
+             * The browser no longer creates
+             * the $35 order.
+             *
+             * Netlify creates it.
+             */
 
-                  setStatus(
-                    "Opening PayPal...",
-                    "info"
-                  );
+            createOrder:
+              async function () {
+
+                setStatus(
+                  "Creating secure $35.00 payment...",
+                  "info"
+                );
 
 
-                  return actions.order.create({
+                const response =
+                  await fetch(
+                    CREATE_ORDER_URL,
+                    {
 
-                    purchase_units: [
+                      method: "POST",
 
-                      {
-
-                        description:
-                          "Horizon Home Rentals Application Fee",
-
-                        amount: {
-
-                          currency_code:
-                            currency,
-
-                          value:
-                            applicationFee
-
-                        }
-
+                      headers: {
+                        "Content-Type":
+                          "application/json"
                       }
-
-                    ],
-
-                    application_context: {
-
-                      brand_name:
-                        "Horizon Home Rentals",
-
-                      shipping_preference:
-                        "NO_SHIPPING",
-
-                      user_action:
-                        "PAY_NOW"
 
                     }
-
-                  });
-
-                },
-
-
-
-              /*
-               * Buyer approved the payment.
-               */
-
-              onApprove:
-                function (
-                  data,
-                  actions
-                ) {
-
-                  setStatus(
-                    "Processing your Sandbox payment...",
-                    "info"
                   );
 
 
-                  return actions.order
-                    .capture()
-                    .then(
-                      function (
-                        orderDetails
-                      ) {
-
-                        const transactionId =
-                          getTransactionId(
-                            orderDetails
-                          );
+                const data =
+                  await response.json();
 
 
-                        paypalContainer.style.display =
-                          "none";
-
-
-                        confirmationCheckbox.disabled =
-                          true;
-
-
-                        setStatus(
-                          "Sandbox payment completed successfully." +
-                          (
-                            transactionId
-                              ? " Transaction ID: " +
-                                transactionId
-                              : ""
-                          ),
-                          "success"
-                        );
-
-
-                        console.log(
-                          "PayPal Sandbox order:",
-                          orderDetails
-                        );
-
-                      }
-                    );
-
-                },
-
-
-
-              /*
-               * Buyer cancelled.
-               */
-
-              onCancel:
-                function () {
-
-                  setStatus(
-                    "The payment was cancelled. No payment was completed.",
-                    "info"
-                  );
-
-                },
-
-
-
-              /*
-               * PayPal error.
-               */
-
-              onError:
-                function (
-                  error
+                if (
+                  !response.ok ||
+                  !data.id
                 ) {
 
                   console.error(
-                    "PayPal error:",
-                    error
+                    "Create order error:",
+                    data
                   );
 
 
-                  setStatus(
-                    "PayPal encountered an error. Please try again.",
-                    "error"
+                  throw new Error(
+                    data.error ||
+                    "Unable to create payment."
                   );
 
                 }
 
-            })
-            .render(
-              "#paypal-button-container"
-            )
-            .then(
-              function () {
 
-                paypalContainer.dataset.rendered =
-                  "true";
+                return data.id;
+
+              },
+
+
+
+            /*
+             * PayPal tells us that the buyer
+             * approved the order.
+             *
+             * We send ONLY the order ID
+             * to Netlify.
+             *
+             * Netlify retrieves the order
+             * from PayPal and verifies that
+             * it really is $35 USD.
+             */
+
+            onApprove:
+              async function (data) {
+
+                setStatus(
+                  "Verifying and processing your payment...",
+                  "info"
+                );
+
+
+                const response =
+                  await fetch(
+                    CAPTURE_ORDER_URL,
+                    {
+
+                      method: "POST",
+
+                      headers: {
+                        "Content-Type":
+                          "application/json"
+                      },
+
+                      body:
+                        JSON.stringify({
+
+                          orderID:
+                            data.orderID
+
+                        })
+
+                    }
+                  );
+
+
+                const result =
+                  await response.json();
+
+
+                if (
+                  !response.ok ||
+                  !result.success
+                ) {
+
+                  console.error(
+                    "Capture error:",
+                    result
+                  );
+
+
+                  throw new Error(
+                    result.error ||
+                    "Payment verification failed."
+                  );
+
+                }
+
+
+                paypalContainer.style.display =
+                  "none";
+
+
+                checkbox.disabled =
+                  true;
+
+
+                checkbox.checked =
+                  true;
+
+
+                let message =
+                  "Payment completed successfully.";
+
+
+                if (
+                  result.transactionID
+                ) {
+
+                  message +=
+                    " Transaction ID: " +
+                    result.transactionID;
+
+                }
 
 
                 setStatus(
-                  "Choose PayPal below to continue.",
+                  message,
                   "success"
                 );
 
-              }
-            )
-            .catch(
-              function (
-                error
-              ) {
+              },
+
+
+
+            /*
+             * Buyer cancels PayPal.
+             */
+
+            onCancel:
+              function () {
+
+                setStatus(
+                  "The payment was cancelled. No payment was completed.",
+                  "info"
+                );
+
+              },
+
+
+
+            /*
+             * Checkout error.
+             */
+
+            onError:
+              function (error) {
 
                 console.error(
-                  "PayPal render error:",
+                  "PayPal checkout error:",
                   error
                 );
 
 
                 setStatus(
-                  "The PayPal button could not be displayed. Please try refreshing the page.",
+                  "The payment could not be completed. Please try again.",
                   "error"
                 );
 
               }
-            );
 
-        } catch (
-          error
-        ) {
-
-          console.error(
-            "PayPal initialization error:",
-            error
-          );
+          })
 
 
-          setStatus(
-            "PayPal could not be initialized.",
-            "error"
-          );
-
-        }
-
-      }
-
-
-
-      /*
-       * Get transaction ID after capture
-       */
-
-      function getTransactionId(
-        orderDetails
-      ) {
-
-        try {
-
-          return (
-            orderDetails
-              .purchase_units[0]
-              .payments
-              .captures[0]
-              .id || ""
-          );
-
-        } catch (
-          error
-        ) {
-
-          return "";
-
-        }
-
-      }
-
-
-
-      /*
-       * Format fee
-       */
-
-      function formatCurrency(
-        amount,
-        currencyCode
-      ) {
-
-        const numericAmount =
-          Number(amount);
-
-
-        if (
-          Number.isNaN(
-            numericAmount
+          .render(
+            "#paypal-button-container"
           )
-        ) {
-
-          return "$35.00";
-
-        }
 
 
-        try {
+          .then(
+            function () {
 
-          return new Intl.NumberFormat(
-            "en-US",
-            {
+              paypalContainer.dataset.rendered =
+                "true";
 
-              style: "currency",
 
-              currency:
-                currencyCode
+              setStatus(
+                "Choose PayPal below to continue.",
+                "success"
+              );
 
             }
-          ).format(
-            numericAmount
+          )
+
+
+          .catch(
+            function (error) {
+
+              console.error(
+                "PayPal render error:",
+                error
+              );
+
+
+              setStatus(
+                "The PayPal button could not be displayed.",
+                "error"
+              );
+
+            }
           );
-
-        } catch (
-          error
-        ) {
-
-          return (
-            "$" +
-            numericAmount.toFixed(2)
-          );
-
-        }
 
       }
 
 
 
       /*
-       * Status messages
+       * Status helper.
        */
 
       function setStatus(
@@ -920,11 +850,11 @@
         type
       ) {
 
-        paypalStatus.textContent =
+        status.textContent =
           message;
 
 
-        paypalStatus.classList.remove(
+        status.classList.remove(
           "success",
           "error"
         );
@@ -934,7 +864,7 @@
           type === "success"
         ) {
 
-          paypalStatus.classList.add(
+          status.classList.add(
             "success"
           );
 
@@ -945,7 +875,7 @@
           type === "error"
         ) {
 
-          paypalStatus.classList.add(
+          status.classList.add(
             "error"
           );
 
@@ -958,4 +888,5 @@
   </script>
 
 </body>
-</html>
+
+  </html>
