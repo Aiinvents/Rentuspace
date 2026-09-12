@@ -49,7 +49,9 @@
   </a>
 
 
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================== -->
 
   <header class="site-header">
 
@@ -93,8 +95,9 @@
   </header>
 
 
-
-  <!-- MAIN -->
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
 
   <main
     id="main-content"
@@ -124,7 +127,9 @@
       <div class="form-layout">
 
 
-        <!-- PAYMENT CARD -->
+        <!-- =========================
+             PAYMENT CARD
+        ========================== -->
 
         <section
           class="payment-card"
@@ -190,8 +195,9 @@
         </section>
 
 
-
-        <!-- INFORMATION CARD -->
+        <!-- =========================
+             INFORMATION CARD
+        ========================== -->
 
         <aside class="payment-card">
 
@@ -214,8 +220,8 @@
 
           <p>
             The $35.00 application fee is created and verified
-            securely by our payment server before the transaction
-            is completed through PayPal.
+            through our secure payment backend before PayPal
+            completes the transaction.
           </p>
 
 
@@ -250,8 +256,9 @@
   </main>
 
 
-
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
   <footer class="site-footer">
 
@@ -297,14 +304,16 @@
   </footer>
 
 
-
-  <!-- SITE CONFIGURATION -->
+  <!-- =========================
+       SITE CONFIG
+  ========================== -->
 
   <script src="assets/js/config.js"></script>
 
 
-
-  <!-- SECURE PAYPAL SANDBOX CHECKOUT -->
+  <!-- =========================
+       PAYPAL SECURE CHECKOUT
+  ========================== -->
 
   <script>
 
@@ -355,7 +364,7 @@
 
 
       /*
-       * Netlify secure backend.
+       * Your Netlify payment backend.
        */
 
       const NETLIFY_BACKEND =
@@ -373,39 +382,51 @@
 
 
       /*
-       * Display information.
+       * Update footer year.
        */
 
       if (year) {
+
         year.textContent =
           new Date().getFullYear();
+
       }
 
+
+      /*
+       * Display fixed application fee.
+       */
 
       if (feeDisplay) {
+
         feeDisplay.textContent =
           "$35.00";
+
       }
 
+
+      /*
+       * Check required elements.
+       */
 
       if (
         !checkbox ||
         !paypalContainer ||
         !status
       ) {
+
         console.error(
-          "Payment page elements are missing."
+          "Required payment page elements are missing."
         );
 
         return;
+
       }
 
 
       /*
-       * Client ID is public and is only used
-       * to load the PayPal checkout interface.
-       *
-       * Client Secret remains inside Netlify.
+       * Make sure PayPal Client ID
+       * exists in config.js.
        */
 
       if (
@@ -419,16 +440,16 @@
           "error"
         );
 
+
         checkbox.disabled = true;
 
         return;
+
       }
 
 
-
       /*
-       * User confirms that an application
-       * has already been submitted.
+       * Confirmation checkbox.
        */
 
       checkbox.addEventListener(
@@ -466,9 +487,8 @@
       );
 
 
-
       /*
-       * Load PayPal JavaScript SDK.
+       * Load PayPal SDK.
        */
 
       function loadPayPalSDK() {
@@ -481,15 +501,20 @@
           renderPayPalButtons();
 
           return;
+
         }
 
 
-        if (
+        const existingScript =
           document.getElementById(
             "paypal-sdk-script"
-          )
-        ) {
+          );
+
+
+        if (existingScript) {
+
           return;
+
         }
 
 
@@ -540,7 +565,7 @@
           function () {
 
             setStatus(
-              "PayPal could not be loaded. Please try again.",
+              "PayPal could not be loaded. Please refresh the page and try again.",
               "error"
             );
 
@@ -554,9 +579,8 @@
       }
 
 
-
       /*
-       * Render PayPal button.
+       * Render PayPal Buttons.
        */
 
       function renderPayPalButtons() {
@@ -572,273 +596,384 @@
           );
 
           return;
+
         }
 
 
         paypalContainer.innerHTML = "";
 
 
-        window.paypal
-          .Buttons({
+        try {
 
-            style: {
+          window.paypal
+            .Buttons({
 
-              layout: "vertical",
+              style: {
 
-              shape: "rect",
+                layout:
+                  "vertical",
 
-              label: "paypal"
+                shape:
+                  "rect",
 
-            },
-
-
-
-            /*
-             * IMPORTANT:
-             *
-             * The browser no longer creates
-             * the $35 order.
-             *
-             * Netlify creates it.
-             */
-
-            createOrder:
-              async function () {
-
-                setStatus(
-                  "Creating secure $35.00 payment...",
-                  "info"
-                );
-
-
-                const response =
-                  await fetch(
-                    CREATE_ORDER_URL,
-                    {
-
-                      method: "POST",
-
-                      headers: {
-                        "Content-Type":
-                          "application/json"
-                      }
-
-                    }
-                  );
-
-
-                const data =
-                  await response.json();
-
-
-                if (
-                  !response.ok ||
-                  !data.id
-                ) {
-
-                  console.error(
-                    "Create order error:",
-                    data
-                  );
-
-
-                  throw new Error(
-                    data.error ||
-                    "Unable to create payment."
-                  );
-
-                }
-
-
-                return data.id;
+                label:
+                  "paypal"
 
               },
 
 
+              /*
+               * Netlify creates the order.
+               * The browser does NOT decide
+               * the actual payment amount.
+               */
 
-            /*
-             * PayPal tells us that the buyer
-             * approved the order.
-             *
-             * We send ONLY the order ID
-             * to Netlify.
-             *
-             * Netlify retrieves the order
-             * from PayPal and verifies that
-             * it really is $35 USD.
-             */
+              createOrder:
+                async function () {
 
-            onApprove:
-              async function (data) {
-
-                setStatus(
-                  "Verifying and processing your payment...",
-                  "info"
-                );
-
-
-                const response =
-                  await fetch(
-                    CAPTURE_ORDER_URL,
-                    {
-
-                      method: "POST",
-
-                      headers: {
-                        "Content-Type":
-                          "application/json"
-                      },
-
-                      body:
-                        JSON.stringify({
-
-                          orderID:
-                            data.orderID
-
-                        })
-
-                    }
+                  setStatus(
+                    "Creating secure $35.00 payment...",
+                    "info"
                   );
 
 
-                const result =
-                  await response.json();
+                  try {
+
+                    const response =
+                      await fetch(
+                        CREATE_ORDER_URL,
+                        {
+
+                          method:
+                            "POST",
+
+                          headers: {
+
+                            "Content-Type":
+                              "application/json"
+
+                          }
+
+                        }
+                      );
 
 
-                if (
-                  !response.ok ||
-                  !result.success
+                    let data = {};
+
+
+                    try {
+
+                      data =
+                        await response.json();
+
+                    } catch (
+                      jsonError
+                    ) {
+
+                      console.error(
+                        "Could not read create-order response:",
+                        jsonError
+                      );
+
+                    }
+
+
+                    if (
+                      !response.ok ||
+                      !data.id
+                    ) {
+
+                      console.error(
+                        "Create order failed:",
+                        data
+                      );
+
+
+                      setStatus(
+                        data.error ||
+                        "The payment order could not be created.",
+                        "error"
+                      );
+
+
+                      throw new Error(
+                        data.error ||
+                        "Unable to create PayPal order."
+                      );
+
+                    }
+
+
+                    return data.id;
+
+                  } catch (
+                    error
+                  ) {
+
+                    console.error(
+                      "Create order request error:",
+                      error
+                    );
+
+
+                    setStatus(
+                      "The payment could not be started. Please try again.",
+                      "error"
+                    );
+
+
+                    throw error;
+
+                  }
+
+                },
+
+
+              /*
+               * Buyer approved PayPal.
+               * Netlify verifies the order
+               * and captures it.
+               */
+
+              onApprove:
+                async function (
+                  data
+                ) {
+
+                  setStatus(
+                    "Verifying and processing your payment...",
+                    "info"
+                  );
+
+
+                  try {
+
+                    const response =
+                      await fetch(
+                        CAPTURE_ORDER_URL,
+                        {
+
+                          method:
+                            "POST",
+
+                          headers: {
+
+                            "Content-Type":
+                              "application/json"
+
+                          },
+
+                          body:
+                            JSON.stringify({
+
+                              orderID:
+                                data.orderID
+
+                            })
+
+                        }
+                      );
+
+
+                    let result = {};
+
+
+                    try {
+
+                      result =
+                        await response.json();
+
+                    } catch (
+                      jsonError
+                    ) {
+
+                      console.error(
+                        "Could not read capture response:",
+                        jsonError
+                      );
+
+                    }
+
+
+                    if (
+                      !response.ok ||
+                      !result.success
+                    ) {
+
+                      console.error(
+                        "Capture failed:",
+                        result
+                      );
+
+
+                      setStatus(
+                        result.error ||
+                        "Payment verification failed.",
+                        "error"
+                      );
+
+
+                      throw new Error(
+                        result.error ||
+                        "Payment verification failed."
+                      );
+
+                    }
+
+
+                    paypalContainer.style.display =
+                      "none";
+
+
+                    checkbox.checked =
+                      true;
+
+
+                    checkbox.disabled =
+                      true;
+
+
+                    let successMessage =
+                      "Payment completed successfully.";
+
+
+                    if (
+                      result.transactionID
+                    ) {
+
+                      successMessage +=
+                        " Transaction ID: " +
+                        result.transactionID;
+
+                    }
+
+
+                    setStatus(
+                      successMessage,
+                      "success"
+                    );
+
+                  } catch (
+                    error
+                  ) {
+
+                    console.error(
+                      "Capture request error:",
+                      error
+                    );
+
+
+                    setStatus(
+                      "The payment could not be verified or completed. Please try again.",
+                      "error"
+                    );
+
+
+                    throw error;
+
+                  }
+
+                },
+
+
+              /*
+               * Buyer cancels.
+               */
+
+              onCancel:
+                function () {
+
+                  setStatus(
+                    "The payment was cancelled. No payment was completed.",
+                    "info"
+                  );
+
+                },
+
+
+              /*
+               * PayPal checkout error.
+               */
+
+              onError:
+                function (
+                  error
                 ) {
 
                   console.error(
-                    "Capture error:",
-                    result
+                    "PayPal checkout error:",
+                    error
                   );
 
 
-                  throw new Error(
-                    result.error ||
-                    "Payment verification failed."
+                  setStatus(
+                    "PayPal could not complete the payment. Please try again.",
+                    "error"
                   );
 
                 }
 
-
-                paypalContainer.style.display =
-                  "none";
+            })
 
 
-                checkbox.disabled =
-                  true;
+            .render(
+              "#paypal-button-container"
+            )
 
 
-                checkbox.checked =
-                  true;
+            .then(
+              function () {
 
-
-                let message =
-                  "Payment completed successfully.";
-
-
-                if (
-                  result.transactionID
-                ) {
-
-                  message +=
-                    " Transaction ID: " +
-                    result.transactionID;
-
-                }
+                paypalContainer.dataset.rendered =
+                  "true";
 
 
                 setStatus(
-                  message,
+                  "Choose PayPal below to continue.",
                   "success"
                 );
 
-              },
+              }
+            )
 
 
-
-            /*
-             * Buyer cancels PayPal.
-             */
-
-            onCancel:
-              function () {
-
-                setStatus(
-                  "The payment was cancelled. No payment was completed.",
-                  "info"
-                );
-
-              },
-
-
-
-            /*
-             * Checkout error.
-             */
-
-            onError:
-              function (error) {
+            .catch(
+              function (
+                error
+              ) {
 
                 console.error(
-                  "PayPal checkout error:",
+                  "PayPal button render error:",
                   error
                 );
 
 
                 setStatus(
-                  "The payment could not be completed. Please try again.",
+                  "The PayPal button could not be displayed. Please refresh the page.",
                   "error"
                 );
 
               }
+            );
 
-          })
+        } catch (
+          error
+        ) {
 
-
-          .render(
-            "#paypal-button-container"
-          )
-
-
-          .then(
-            function () {
-
-              paypalContainer.dataset.rendered =
-                "true";
-
-
-              setStatus(
-                "Choose PayPal below to continue.",
-                "success"
-              );
-
-            }
-          )
-
-
-          .catch(
-            function (error) {
-
-              console.error(
-                "PayPal render error:",
-                error
-              );
-
-
-              setStatus(
-                "The PayPal button could not be displayed.",
-                "error"
-              );
-
-            }
+          console.error(
+            "PayPal initialization error:",
+            error
           );
 
-      }
 
+          setStatus(
+            "PayPal could not be initialized.",
+            "error"
+          );
+
+        }
+
+      }
 
 
       /*
@@ -889,4 +1024,4 @@
 
 </body>
 
-  </html>
+</html>
