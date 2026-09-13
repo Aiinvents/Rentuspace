@@ -1,4 +1,4 @@
-const PAYPAL_API = "https://api-m.sandbox.paypal.com";
+const PAYPAL_API = "https://api-m.paypal.com";";
 const APPLICATION_FEE = "35.00";
 const CURRENCY = "USD";
 const ALLOWED_ORIGIN = "https://aiinvents.github.io";
