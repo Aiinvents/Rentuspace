@@ -15,7 +15,7 @@ window.RENTAL_SITE_CONFIG = {
    * When you are ready to go live, replace it with your
    * PayPal Live client ID.
    */
-  paypalClientId: "BAABuU2xH2oY1ckg4eb8uZ1dza_hKPSa8duAPeIvbS21x4MqmNNsWtk4AsfyA1X9S76TLymGHaWbt-Lzd0",
+  paypalClientId: "BAA_5E7quls7yzxRZ8m4C9HfxOIdRErbn9j2g_gaKWpaqTxuY-R5_bdfgrcsTi1bjPMzjnN_to7ugMaaok",
 
 
   /*
